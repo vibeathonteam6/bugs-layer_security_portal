@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "109377705274",
+    "project_id": "vibe-a-thon-bugslayer",
+    "storage_bucket": "vibe-a-thon-bugslayer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109377705274:android:469507568175608e662c03",
+        "android_client_info": {
+          "package_name": "com.example.security_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2NnQA6WSs6S87hoHfcVCKZGLU7GghjyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109377705274:android:0d65537e922579bd662c03",
+        "android_client_info": {
+          "package_name": "com.example.visitor_management"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2NnQA6WSs6S87hoHfcVCKZGLU7GghjyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

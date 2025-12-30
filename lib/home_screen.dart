@@ -2239,22 +2239,35 @@ class _HomeScreenState extends State<HomeScreen>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _buildMobileInfoItem(
-                      isVip ? Icons.business : Icons.phone_outlined,
-                      isVip
-                          ? (data['organization'] ?? '-')
-                          : (data['mobile'] ?? '-')),
+                    isVip ? Icons.business : Icons.phone_outlined,
+                    isVip
+                        ? (data['organization'] ?? '-')
+                        : (data['mobile'] ?? '-'),
+                    flex: 2,
+                  ),
+                  const SizedBox(width: 8),
                   if (!isProfile)
-                    _buildMobileInfoItem(Icons.directions_car_outlined,
-                        data['vehicleNumber'] ?? '-'),
-                  if (isVip)
                     _buildMobileInfoItem(
-                        Icons.person_pin, data['escortName'] ?? '-'),
-                  if (isProfile && data['isBlocked'] == true)
+                      Icons.directions_car_outlined,
+                      data['vehicleNumber'] ?? '-',
+                      flex: 1,
+                    ),
+                  if (isVip) ...[
+                    const SizedBox(width: 8),
+                    _buildMobileInfoItem(
+                      Icons.person_pin,
+                      data['escortName'] ?? '-',
+                      flex: 1,
+                    ),
+                  ],
+                  if (isProfile && data['isBlocked'] == true) ...[
+                    const SizedBox(width: 8),
                     Text('Blacklisted',
                         style: GoogleFonts.inter(
                             color: Colors.red,
                             fontSize: 12,
                             fontWeight: FontWeight.bold)),
+                  ],
                 ],
               ),
               const SizedBox(height: 12),
@@ -2279,14 +2292,22 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget _buildMobileInfoItem(IconData icon, String label) {
-    return Row(
-      children: [
-        Icon(icon, size: 16, color: Colors.grey),
-        const SizedBox(width: 4),
-        Text(label,
-            style: GoogleFonts.inter(fontSize: 12, color: Colors.grey[600])),
-      ],
+  Widget _buildMobileInfoItem(IconData icon, String label, {int flex = 1}) {
+    return Expanded(
+      flex: flex,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 16, color: Colors.grey),
+          const SizedBox(width: 4),
+          Flexible(
+            child: Text(label,
+                overflow: TextOverflow.ellipsis,
+                style:
+                    GoogleFonts.inter(fontSize: 12, color: Colors.grey[600])),
+          ),
+        ],
+      ),
     );
   }
 }
